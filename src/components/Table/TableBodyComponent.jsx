@@ -84,10 +84,10 @@ const TableBodyComponent = ({
                 <Box sx={{ display: "flex", gap: "15px", alignItems: "center" }}>
                   <Skeleton variant="text" width="3%" height={24} />
                  
-                  <Skeleton variant="rectangular" width="10%" height={50} />
-                  <Skeleton variant="text" width="15%" height={24} />
+                  <Skeleton variant="rectangular" width="11%" height={50} />
+                  <Skeleton variant="text" width="10%" height={24} />
                   <Skeleton variant="text" width="20%" height={24} />
-                  <Skeleton variant="text" width="30%" height={24} />
+                  <Skeleton variant="text" width="35%" height={24} />
                   <Skeleton variant="circular" width={30} height={30} />
                   <Skeleton variant="circular" width={30} height={30} />
                   <Skeleton variant="circular" width={30} height={30} />
