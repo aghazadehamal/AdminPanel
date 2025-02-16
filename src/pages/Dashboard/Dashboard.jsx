@@ -442,13 +442,19 @@ const Dashboard = () => {
 
         <DeleteConfirmationModal
           open={deleteDialogOpen}
-          onClose={() => setDeleteDialogOpen(false)}
+          onClose={() => {
+            document.activeElement?.blur();
+            setDeleteDialogOpen(false);
+          }}
           onConfirm={confirmDelete}
         />
 
         <CreateLinkModal
           modalOpen={createModalOpen}
-          handleCloseModal={() => setCreateModalOpen(false)}
+          handleCloseModal={() => {
+            document.activeElement?.blur();
+            setCreateModalOpen(false);
+          }}
           handleSubmit={handleCreateLink}
           newLink={newLink}
           setNewLink={setNewLink}
@@ -459,7 +465,10 @@ const Dashboard = () => {
 
         <UpdateLinkModal
           modalOpen={updateModalOpen}
-          handleCloseModal={() => setUpdateModalOpen(false)}
+          handleCloseModal={() => {
+            document.activeElement?.blur();
+            setUpdateModalOpen(false);
+          }}
           handleSubmit={handleUpdateLink}
           newLink={newLink}
           setNewLink={setNewLink}
@@ -470,7 +479,12 @@ const Dashboard = () => {
 
         <Dialog
           open={viewModalOpen}
-          onClose={handleCloseViewModal}
+          onClose={() => {
+            document.activeElement?.blur();
+            handleCloseViewModal();
+          }}
+          disableRestoreFocus
+          disableEnforceFocus
           sx={{
             "& .MuiDialog-paper": {
               width: "500px",
@@ -489,7 +503,10 @@ const Dashboard = () => {
           </DialogContent>
           <DialogActions>
             <Button
-              onClick={handleCloseViewModal}
+              onClick={() => {
+                document.activeElement?.blur();
+                handleCloseViewModal();
+              }}
               color="error"
               variant="contained"
             >

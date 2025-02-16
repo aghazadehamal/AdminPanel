@@ -3,20 +3,32 @@ import {
   Dialog,
   DialogActions,
   DialogContent,
-  Typography,
+  Typography
 } from "@mui/material";
 import React from "react";
 
 const DeleteConfirmationModal = ({ open, onClose, onConfirm }) => {
+  const handleClose = () => {
+    document.activeElement?.blur();
+    onClose();
+  };
+
   return (
-    <Dialog open={open} onClose={onClose} maxWidth="xs" fullWidth>
+    <Dialog
+      open={open}
+      onClose={handleClose}
+      maxWidth="xs"
+      fullWidth
+      disableRestoreFocus
+      disableEnforceFocus
+    >
       <DialogContent>
         <Typography>
           Are you sure you want to delete this information?
         </Typography>
       </DialogContent>
       <DialogActions>
-        <Button onClick={onClose} color="primary">
+        <Button onClick={handleClose} color="primary">
           Cancel
         </Button>
         <Button onClick={onConfirm} color="error" variant="contained">

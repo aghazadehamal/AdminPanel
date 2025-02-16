@@ -11,6 +11,7 @@ import { useQuery } from "@tanstack/react-query";
 import axios from "axios";
 import { useState } from "react";
 import ExpandableText from "../ExpandableText/ExpandableText";
+
 const fetchLinkById = async (id) => {
   const token = localStorage.getItem("token");
   const { data } = await axios.get(
@@ -39,6 +40,7 @@ const LinkViewModal = ({ linkId, languageId }) => {
   };
 
   const handleCloseImageModal = () => {
+    document.activeElement?.blur();
     setOpenImageModal(false);
   };
 
@@ -109,7 +111,7 @@ const LinkViewModal = ({ linkId, languageId }) => {
           }}
           component="img"
           image={`http://135.181.42.5:220${data.imagePath}`}
-          alt={""}
+          alt=""
           onClick={handleOpenImageModal}
         />
       )}
@@ -118,6 +120,8 @@ const LinkViewModal = ({ linkId, languageId }) => {
         open={openImageModal}
         onClose={handleCloseImageModal}
         maxWidth="xl"
+        disableRestoreFocus
+        disableEnforceFocus
         sx={{
           "& .MuiDialog-paper": {
             margin: 0,

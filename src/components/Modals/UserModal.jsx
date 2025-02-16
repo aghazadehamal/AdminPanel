@@ -19,8 +19,20 @@ const UserModal = ({ userId, onClose }) => {
     error: userError,
   } = useGetUserByIdQuery(userId);
 
+  const handleClose = () => {
+    document.activeElement?.blur();
+    onClose();
+  };
+
   return (
-    <Dialog open={true} onClose={onClose} maxWidth="sm" fullWidth>
+    <Dialog
+      open={!!userId}
+      onClose={handleClose}
+      maxWidth="sm"
+      fullWidth
+      disableRestoreFocus
+      disableEnforceFocus
+    >
       <DialogTitle
         sx={{ textAlign: "center", fontWeight: "bold", fontSize: "22px" }}
       >
@@ -103,7 +115,7 @@ const UserModal = ({ userId, onClose }) => {
       </DialogContent>
 
       <DialogActions sx={{ justifyContent: "center", paddingBottom: "16px" }}>
-        <Button onClick={onClose} variant="contained" color="error">
+        <Button onClick={handleClose} variant="contained" color="error">
           Close
         </Button>
       </DialogActions>

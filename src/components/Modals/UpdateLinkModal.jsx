@@ -5,7 +5,7 @@ import {
   DialogActions,
   DialogContent,
   DialogTitle,
-  TextField
+  TextField,
 } from "@mui/material";
 import React from "react";
 
@@ -29,12 +29,19 @@ const UpdateLinkModal = ({
     });
   };
 
+  const handleModalClose = () => {
+    document.activeElement?.blur();
+    handleCloseModal();
+  };
+
   return (
     <Dialog
       open={modalOpen}
-      onClose={handleCloseModal}
+      onClose={handleModalClose}
       maxWidth="sm"
       fullWidth
+      disableRestoreFocus
+      disableEnforceFocus
       sx={{
         "& .MuiDialog-paper": {
           borderRadius: "12px",
@@ -112,7 +119,7 @@ const UpdateLinkModal = ({
       </DialogContent>
 
       <DialogActions>
-        <Button onClick={handleCloseModal} color="error" variant="contained">
+        <Button onClick={handleModalClose} color="error" variant="contained">
           Close
         </Button>
         <Button onClick={handleSubmit} variant="contained" color="success">
