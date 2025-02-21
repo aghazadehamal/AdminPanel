@@ -1,0 +1,25 @@
+.snackbarContent {
+    background-color: #4caf50 !important;
+    color: #ffffff !important;
+    font-size: 16px !important;
+    font-weight: bold !important;
+    border-radius: 8px !important;
+    padding: 12px !important;
+    display: flex !important;
+    align-items: center !important;
+    gap: 10px !important;
+  }
+  
+  .snackbarError {
+    background-color: #d32f2f !important;
+  }
+  
+  .snackbarMessage {
+    display: flex !important;
+    align-items: center !important;
+    gap: 8px !important;
+  }
+  
+  .snackbarIcon {
+    color: #fff !important;
+  }

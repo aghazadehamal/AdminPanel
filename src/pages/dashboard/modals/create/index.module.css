@@ -1,0 +1,60 @@
+.dialogPaper {
+  border-radius: 12px !important;
+  padding: 24px !important;
+  background-color: #ffffff !important;
+  transition: all 0.3s ease !important;
+}
+
+.dialogPaperDark {
+  background-color: #2c3e50 !important;
+}
+
+.dialogTitle {
+  text-align: center !important;
+  font-weight: bold !important;
+  font-size: 22px !important;
+}
+
+.dialogContent {
+  display: flex !important;
+  flex-direction: column !important;
+  gap: 24px !important;
+  padding-top: 10px !important;
+}
+
+.previewImageBox {
+  text-align: center !important;
+}
+
+.previewImage {
+  width: 120px !important;
+  height: 120px !important;
+  border-radius: 8px !important;
+}
+
+.translationInputRight {
+  text-align: right !important;
+}
+
+.translationInputLeft {
+  text-align: left !important;
+}
+
+.dialogActions {
+  display: flex !important;
+  justify-content: flex-end !important;
+  gap: 8px !important;
+}
+
+.dialogInput {
+  width: 100% !important;
+}
+
+.dialogButton {
+  margin-top: 8px !important;
+  text-transform: none !important;
+}
+
+.dialogImageInput {
+  margin-top: 8px !important;
+}

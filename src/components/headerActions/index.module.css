@@ -1,0 +1,39 @@
+.headerContainer {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: flex-end !important;
+    gap: 8px !important;
+  }
+  
+  .userBox {
+    display: flex !important;
+    align-items: center !important;
+    gap: 8px !important;
+    cursor: pointer !important;
+  }
+  
+  .iconButtonPrimary {
+    color: #2196F3 !important;
+  }
+  
+  .userNameText {
+    font-weight: bold !important;
+    color: inherit !important;
+  }
+  
+  .actionsBox {
+    display: flex !important;
+    align-items: center !important;
+    gap: 16px !important;
+    color: inherit !important;
+  }
+  
+  .buttonPrimary {
+    background-color: #4CAF50 !important;
+    color: #ffffff !important;
+  }
+  
+  .buttonPrimary:hover {
+    background-color: #45A049 !important;
+  }
+  

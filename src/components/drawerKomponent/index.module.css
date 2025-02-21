@@ -1,0 +1,128 @@
+.drawerRoot {
+    width: 240px;
+    flex-shrink: 0;
+    display: block;
+  }
+  
+  .drawerPaper {
+    width: 240px;
+    box-sizing: border-box;
+    background-color: #2c3e50 !important;
+    color: #ffffff;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+  
+
+
+  .listContainer {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: flex-start !important;
+    gap: 16px !important; 
+    padding-left: 16px !important; 
+    margin-top: 56px !important ; 
+  }
+  
+  @media (min-width: 600px) {
+    .listContainer {
+      margin-top: 16px !important;
+    }
+  }
+
+  .listItemButtonCenter {
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
+    width: 100% !important;
+    padding-left: 0 !important;
+    cursor: pointer !important;
+  }
+  
+  .dashboardIconWrapper {
+    min-width: 50px !important;
+    transform: scale(1.5) !important;
+  }
+  
+  @media (max-width: 600px) {
+    .dashboardIconWrapper {
+      margin-top: 8px !important;
+    }
+  }
+  
+  .iconWhite {
+    color: #ffffff !important;
+  }
+  
+
+
+  .listItemButton {
+    display: flex !important;
+    align-items: center !important;
+    width: 100% !important;
+    padding-left: 0 !important;
+    cursor: pointer !important;
+  }
+  
+  .listItemIcon {
+    min-width: 40px !important;
+  }
+  
+  .iconWhite {
+    color: #ffffff !important;
+  }
+  
+  .listItemText {
+    color: #ffffff !important;
+    margin-left: -8px !important;
+  }
+  
+  
+
+  .switchContainer {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    gap: 8px !important;
+  }
+  
+  .switchText {
+    color: #b0bec5 !important;
+    font-style: italic !important;
+  }
+  
+  .switchBox {
+    display: flex !important;
+    align-items: center !important;
+    gap: 8px !important;
+  }
+  
+
+
+  .logoutWrapper {
+    padding: 16px !important;
+  }
+  
+  .listItemButton {
+    display: flex !important;
+    align-items: center !important;
+    width: 100% !important;
+    padding-left: 0 !important;
+    cursor: pointer !important;
+  }
+  
+  .listItemIcon {
+    min-width: 40px !important;
+  }
+  
+  .iconWhite {
+    color: #ffffff !important;
+  }
+  
+  
+  .listItemText {
+    color: #ffffff !important;
+    margin-left: -8px !important;
+  }
+  

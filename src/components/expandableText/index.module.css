@@ -1,0 +1,26 @@
+.expandableTextContainer {
+    display: inline !important;
+  }
+  
+  .expandableTextLink {
+    color: #2196F3 !important;
+    text-decoration: underline !important;
+    word-break: break-word !important;
+    display: inline !important;
+  }
+  
+  .expandableTextSpan {
+    color: inherit !important;
+    text-decoration: none !important;
+    word-break: break-word !important;
+    display: inline !important;
+  }
+  
+  .expandableTextToggle {
+    color: #2196F3 !important;
+    cursor: pointer !important;
+    margin-left: 4px !important;
+    font-weight: bold !important;
+    display: inline !important;
+  }
+  

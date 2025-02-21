@@ -1,0 +1,24 @@
+.mobileSkeletonContainer {
+    border: 1px solid #ddd !important;
+    border-radius: 8px !important;
+    padding: 12px !important;
+    margin-bottom: 8px !important;
+    background-color: #f9f9f9 !important;
+    text-align: center !important;
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+  }
+  
+  .mobileSkeletonIcons {
+    display: flex !important;
+    justify-content: center !important;
+    gap: 8px !important;
+  }
+  
+  .desktopSkeletonContainer {
+    display: flex !important;
+    gap: 15px !important;
+    align-items: center !important;
+  }
+  

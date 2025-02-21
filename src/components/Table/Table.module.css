@@ -1,0 +1,71 @@
+.tableBody {
+  width: 100%;
+  min-width: 100%;
+  margin-top: 8px;
+}
+
+.mobileCardContainer {
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 12px;
+  margin-bottom: 8px;
+  background-color: #ffffff;
+  text-align: center;
+}
+
+.mobileCardContainerDarkMode {
+  background-color: #1e1e1e;
+}
+
+.mobileCardTitle {
+  margin-top: 8px;
+  font-weight: bold;
+}
+
+.mobileCardImage {
+  object-fit: contain;
+  border-radius: 8px;
+  margin-top: 8px;
+  height: auto;
+}
+
+.desktopCardImage {
+  object-fit: contain;
+  border-radius: 8px;
+}
+
+.desktopText {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  font-weight: bold;
+  font-size: 14px;
+  color: #000;
+}
+
+.desktopTextDarkText {
+  color: #fff;
+}
+
+.tableLink {
+  color: #1976d2;
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 12px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: inline-block;
+  max-width: 200px;
+}
+
+.tableLinkDarkLink {
+  color: #ffffff;
+}
+
+.iconButtonContainer {
+  display: flex;
+  justify-content: center;
+  margin-top: 8px;
+  gap: 8px;
+}
