@@ -2,6 +2,7 @@ import SkeletonRows from "@/components/Skeletons";
 import { BASE_IMAGE_URL } from "@/constants/data";
 import VisibilityIcon from "@mui/icons-material/Visibility";
 import { useMediaQuery } from "@mui/material";
+import { useSelector } from "react-redux";
 import styles from "./Table.module.css";
 
 import { Box, CardMedia, IconButton, TableBody, TableCell, TableRow, Typography } from "@mui/material";
@@ -10,7 +11,10 @@ import React from "react";
 import DeleteIcon from "@mui/icons-material/Delete";
 import EditIcon from "@mui/icons-material/Edit";
 
-const TableBodyComponent = ({ isLoading, data, darkMode, handleDelete, handleViewLink, handleEdit, languageId, page, limit }) => {
+const TableBodyComponent = ({ isLoading, data, darkMode, handleDelete, handleViewLink, handleEdit, page, limit }) => {
+  const isMobile = useMediaQuery("(max-width:600px)");
+  const languageId = useSelector((state) => state.language.languageId);
+
   const getTitleByLanguage = (translations, langId) => {
     const translation = translations?.find((item) => item.languageId === langId);
     return translation ? translation.title : "Title not found";
@@ -20,8 +24,6 @@ const TableBodyComponent = ({ isLoading, data, darkMode, handleDelete, handleVie
     if (!text) return "";
     return text.length > maxLength ? text.substring(0, maxLength) + "..." : text;
   };
-
-  const isMobile = useMediaQuery("(max-width:600px)");
 
   return (
     <TableBody className={styles.tableBody}>

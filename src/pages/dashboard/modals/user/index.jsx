@@ -3,7 +3,8 @@ import { Box, Button, CircularProgress, Dialog, DialogActions, DialogContent, Di
 import { useQuery } from "@tanstack/react-query";
 import axios from "axios";
 import { useContext } from "react";
-import { ThemeContext } from "../../../../components/tehemeContext/ThemeContext";
+
+import { ThemeContext } from "@/components/tehemeContext/ThemeContext";
 import styles from "./index.module.css";
 
 const fetchUserById = async () => {

@@ -1,8 +1,8 @@
+import { BASE_IMAGE_URL, defaultTranslations, initialLinkData } from "@/constants/data";
 import { Box, Button, Dialog, DialogActions, DialogContent, DialogTitle, TextField } from "@mui/material";
 import { useMutation, useQueryClient } from "@tanstack/react-query";
 import axios from "axios";
 import { useEffect, useState } from "react";
-import { BASE_IMAGE_URL, defaultTranslations, initialLinkData } from "@/constants/data";
 import styles from "./index.module.css";
 
 const UpdateLinkContainer = ({ modalOpen, handleCloseModal, refetch, darkMode, setSnackbarMessage, setSnackbarSeverity, setOpenSnackbar, editLink }) => {

@@ -1,15 +1,31 @@
 import { authApi } from "@/api/authApi";
 import authReducer from "@/store/authSlice";
-import { configureStore } from "@reduxjs/toolkit";
-import { setupListeners } from "@reduxjs/toolkit/query";
+import languageReducer from "@/store/languageSlice";
+import { combineReducers, configureStore } from "@reduxjs/toolkit";
+import { persistReducer, persistStore } from "redux-persist";
+import storage from "redux-persist/lib/storage";
 
-export const store = configureStore({
-  reducer: {
-    auth: authReducer,
-    [authApi.reducerPath]: authApi.reducer,
-  },
-  middleware: (getDefaultMiddleware) => getDefaultMiddleware().concat(authApi.middleware),
+const rootReducer = combineReducers({
+  auth: authReducer,
+  language: languageReducer,
+  [authApi.reducerPath]: authApi.reducer,
 });
 
-setupListeners(store.dispatch);
+const persistConfig = {
+  key: "root",
+  storage,
+  whitelist: ["language"],
+};
+
+const persistedReducer = persistReducer(persistConfig, rootReducer);
+
+export const store = configureStore({
+  reducer: persistedReducer,
+  middleware: (getDefaultMiddleware) =>
+    getDefaultMiddleware({
+      serializableCheck: false,
+    }).concat(authApi.middleware),
+});
+
+export const persistor = persistStore(store);
 export default store;
