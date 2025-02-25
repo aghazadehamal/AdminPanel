@@ -1,9 +1,10 @@
 import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
+import { BASE_URL } from "../constants/data";
 
 export const authApi = createApi({
   reducerPath: "authApi",
   baseQuery: fetchBaseQuery({
-    baseUrl: "http://135.181.42.5:220/api/auth",
+    baseUrl: `${BASE_URL}/api/auth`,
     prepareHeaders: (headers) => {
       const token = localStorage.getItem("token");
       if (token) {
@@ -33,10 +34,6 @@ export const authApi = createApi({
   }),
 });
 
-export const {
-  useRegisterUserMutation,
-  useLoginUserMutation,
-  useGetUserByIdQuery,
-} = authApi;
+export const { useRegisterUserMutation, useLoginUserMutation, useGetUserByIdQuery } = authApi;
 
 export default authApi;

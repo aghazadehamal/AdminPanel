@@ -1,4 +1,4 @@
-import { BASE_IMAGE_URL, createLinkData, defaultTranslations, formatEditLink, initialLinkData } from "@/constants/data";
+import { BASE_IMAGE_URL, BASE_URL, createLinkData, defaultTranslations, formatEditLink, initialLinkData } from "@/constants/data";
 import { Box, Button, Dialog, DialogActions, DialogContent, DialogTitle, TextField } from "@mui/material";
 import { useMutation, useQueryClient } from "@tanstack/react-query";
 import axios from "axios";
@@ -28,7 +28,7 @@ const UpdateLinkContainer = ({ modalOpen, handleCloseModal, refetch, darkMode, s
 
       const token = localStorage.getItem("token");
 
-      const response = await axios.put("http://135.181.42.5:220/api/home/updateUsefulLink", formData, {
+      const response = await axios.put(`${BASE_URL}/api/home/updateUsefulLink`, formData, {
         headers: {
           Authorization: `Bearer ${token}`,
           "Content-Type": "multipart/form-data",
@@ -55,7 +55,7 @@ const UpdateLinkContainer = ({ modalOpen, handleCloseModal, refetch, darkMode, s
           : { ...defaultItem, title: "" };
       });
 
-      setPreviewImage(editLink.imagePath ? `${BASE_IMAGE_URL}${editLink.imagePath}` : null);
+      setPreviewImage(editLink.imagePath ? `${BASE_IMAGE_URL}/api/home/updateUsefulLink` : null);
     }
   }, [editLink]);
 
@@ -116,7 +116,7 @@ const UpdateLinkContainer = ({ modalOpen, handleCloseModal, refetch, darkMode, s
   useEffect(() => {
     if (editLink) {
       setNewLink(formatEditLink(editLink));
-      setPreviewImage(editLink.imagePath ? `${BASE_IMAGE_URL}${editLink.imagePath}` : null);
+      setPreviewImage(editLink.imagePath ? `${BASE_IMAGE_URL}/api/home/updateUsefulLink` : null);
     }
   }, [editLink]);
 

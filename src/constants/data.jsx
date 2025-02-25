@@ -29,6 +29,7 @@ export const LANGUAGE_IDS = {
   ARABIC: 3,
 };
 
+export const BASE_URL = import.meta.env.VITE_BASE_URL;
 export const BASE_IMAGE_URL = import.meta.env.VITE_BASE_IMAGE_URL;
 
 export const createLinkData = (newLink) => ({

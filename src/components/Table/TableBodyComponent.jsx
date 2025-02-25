@@ -1,9 +1,11 @@
 import SkeletonRows from "@/components/Skeletons";
-import { BASE_IMAGE_URL } from "@/constants/data";
+
 import VisibilityIcon from "@mui/icons-material/Visibility";
 import { useMediaQuery } from "@mui/material";
 import { useSelector } from "react-redux";
 import styles from "./Table.module.css";
+
+import { BASE_IMAGE_URL } from "@/constants/data";
 
 import { Box, CardMedia, IconButton, TableBody, TableCell, TableRow, Typography } from "@mui/material";
 import React from "react";

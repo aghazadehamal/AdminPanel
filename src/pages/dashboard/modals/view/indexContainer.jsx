@@ -1,12 +1,7 @@
 import { Button, Dialog, DialogActions, DialogContent } from "@mui/material";
 import LinkViewModal from ".";
 
-const ViewLinkContainer = ({
-  open,
-  handleClose,
-  selectedLinkId,
-  languageId,
-}) => {
+const ViewLinkContainer = ({ open, handleClose, selectedLinkId, languageId }) => {
   return (
     <Dialog
       open={open}
@@ -20,15 +15,7 @@ const ViewLinkContainer = ({
         },
       }}
     >
-      <DialogContent>
-        {selectedLinkId && (
-          <LinkViewModal
-            key={`${selectedLinkId}-${languageId}`}
-            linkId={selectedLinkId}
-            languageId={languageId}
-          />
-        )}
-      </DialogContent>
+      <DialogContent>{selectedLinkId && <LinkViewModal key={`${selectedLinkId}-${languageId}`} linkId={selectedLinkId} languageId={languageId} />}</DialogContent>
       <DialogActions>
         <Button onClick={handleClose} color="error" variant="contained">
           Close

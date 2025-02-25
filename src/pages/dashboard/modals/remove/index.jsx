@@ -1,3 +1,4 @@
+import { BASE_URL } from "@/constants/data";
 import { Button, Dialog, DialogActions, DialogContent, Typography } from "@mui/material";
 import { useMutation, useQueryClient } from "@tanstack/react-query";
 import axios from "axios";
@@ -8,7 +9,7 @@ const DeleteLinkContainer = ({ open, onClose, linkToDelete, refetch, setSnackbar
   const deleteLinkMutation = useMutation({
     mutationFn: async (id) => {
       const token = localStorage.getItem("token");
-      await axios.delete(`http://135.181.42.5:220/api/home/deleteUsefulLink/${id}`, {
+      await axios.delete(`${BASE_URL}/api/home/deleteUsefulLink/${id}`, {
         headers: {
           Authorization: `Bearer ${token}`,
         },

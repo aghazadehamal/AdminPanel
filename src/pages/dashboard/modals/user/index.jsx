@@ -1,3 +1,4 @@
+import { BASE_IMAGE_URL, BASE_URL } from "@/constants/data";
 import AccountCircleIcon from "@mui/icons-material/AccountCircle";
 import { Box, Button, CircularProgress, Dialog, DialogActions, DialogContent, DialogTitle, Typography } from "@mui/material";
 import { useQuery } from "@tanstack/react-query";
@@ -9,7 +10,7 @@ import styles from "./index.module.css";
 
 const fetchUserById = async () => {
   const token = localStorage.getItem("token");
-  const { data } = await axios.get("http://135.181.42.5:220/api/auth/getUserById", {
+  const { data } = await axios.get(`${BASE_URL}/api/auth/getUserById`, {
     headers: {
       Authorization: `Bearer ${token}`,
     },
@@ -55,7 +56,7 @@ const UserModal = ({ userId, onClose }) => {
           <Box className={styles.dialogContent}>
             <Box className={styles.avatarBox}>
               {userData.avatar ? (
-                <img src={`http://135.181.42.5:220${userData.avatar}`} alt="User Avatar" className={styles.avatarImage} />
+                <img src={`${BASE_IMAGE_URL}${userData.avatar}`} alt="User Avatar" className={styles.avatarImage} />
               ) : (
                 <Box className={styles.avatarPlaceholder}>
                   <AccountCircleIcon sx={{ fontSize: 80, color: "#9e9e9e" }} />

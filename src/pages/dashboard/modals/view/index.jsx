@@ -1,14 +1,15 @@
 import ExpandableText from "@/components/ExpandableText";
+import { BASE_IMAGE_URL, BASE_URL } from "@/constants/data";
 import { Box, CardMedia, CircularProgress, Dialog, DialogContent, Typography, useTheme } from "@mui/material";
 import { useQuery } from "@tanstack/react-query";
 import axios from "axios";
 import { useState } from "react";
-import { BASE_IMAGE_URL } from "../../../../constants/data";
+
 import styles from "./index.module.css";
 
 const fetchLinkById = async (id) => {
   const token = localStorage.getItem("token");
-  const { data } = await axios.get(`http://135.181.42.5:220/api/home/getUsefulLinkById/${id}`, {
+  const { data } = await axios.get(`${BASE_URL}/api/home/getUsefulLinkById/${id}`, {
     headers: {
       Authorization: `Bearer ${token}`,
     },
@@ -75,7 +76,7 @@ const LinkViewModal = ({ linkId, languageId }) => {
 
       <Dialog open={openImageModal} onClose={handleCloseImageModal} maxWidth="xl" disableRestoreFocus disableEnforceFocus classes={{ paper: styles.dialogPaper }}>
         <DialogContent className={styles.dialogImageContent}>
-          <CardMedia component="img" image={`http://135.181.42.5:220${data.imagePath}`} alt="" className={styles.dialogImage} />
+          <CardMedia component="img" image={`${BASE_IMAGE_URL}${data.imagePath}`} alt="" className={styles.dialogImage} />
         </DialogContent>
       </Dialog>
     </Box>

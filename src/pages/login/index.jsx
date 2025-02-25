@@ -1,3 +1,4 @@
+import { BASE_URL } from "@/constants/data";
 import { loginSuccess } from "@/store/authSlice";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { Visibility, VisibilityOff } from "@mui/icons-material";
@@ -15,7 +16,7 @@ import * as yup from "yup";
 import styles from "./index.module.css";
 
 const loginUserApi = async (userData) => {
-  const { data } = await axios.post("http://135.181.42.5:220/api/auth/login", userData);
+  const { data } = await axios.post(`${BASE_URL}/api/auth/login`, userData);
   return data;
 };
 

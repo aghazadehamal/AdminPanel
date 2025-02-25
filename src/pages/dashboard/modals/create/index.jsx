@@ -1,4 +1,4 @@
-import { getInitialLinkData } from "@/constants/data";
+import { BASE_URL, getInitialLinkData } from "@/constants/data";
 import { Box, Button, Dialog, DialogActions, DialogContent, DialogTitle, TextField } from "@mui/material";
 import { useMutation, useQueryClient } from "@tanstack/react-query";
 import axios from "axios";
@@ -24,7 +24,7 @@ const CreateLinkModal = ({ modalOpen, handleCloseModal, refetch, darkMode, setSn
       });
 
       const token = localStorage.getItem("token");
-      const response = await axios.post("http://135.181.42.5:220/api/home/createUsefulLink", formData, {
+      const response = await axios.post(`${BASE_URL}/api/home/createUsefulLink`, formData, {
         headers: {
           Authorization: `Bearer ${token}`,
           "Content-Type": "multipart/form-data",
