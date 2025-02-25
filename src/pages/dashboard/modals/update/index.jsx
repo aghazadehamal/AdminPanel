@@ -1,4 +1,4 @@
-import { BASE_IMAGE_URL, defaultTranslations, initialLinkData } from "@/constants/data";
+import { BASE_IMAGE_URL, createLinkData, defaultTranslations, formatEditLink, initialLinkData } from "@/constants/data";
 import { Box, Button, Dialog, DialogActions, DialogContent, DialogTitle, TextField } from "@mui/material";
 import { useMutation, useQueryClient } from "@tanstack/react-query";
 import axios from "axios";
@@ -55,13 +55,6 @@ const UpdateLinkContainer = ({ modalOpen, handleCloseModal, refetch, darkMode, s
           : { ...defaultItem, title: "" };
       });
 
-      setNewLink({
-        url: editLink.link,
-        linkName: editLink.linkName,
-        imageFile: null,
-        translations: updatedTranslations,
-      });
-
       setPreviewImage(editLink.imagePath ? `${BASE_IMAGE_URL}${editLink.imagePath}` : null);
     }
   }, [editLink]);
@@ -97,12 +90,7 @@ const UpdateLinkContainer = ({ modalOpen, handleCloseModal, refetch, darkMode, s
       return;
     }
 
-    const linkData = {
-      url: newLink.url,
-      linkName: newLink.linkName,
-      imageFile: newLink.imageFile,
-      translations: newLink.translations,
-    };
+    const linkData = createLinkData(newLink);
 
     try {
       await updateLinkMutation.mutateAsync({
@@ -124,6 +112,13 @@ const UpdateLinkContainer = ({ modalOpen, handleCloseModal, refetch, darkMode, s
       setOpenSnackbar(true);
     }
   };
+
+  useEffect(() => {
+    if (editLink) {
+      setNewLink(formatEditLink(editLink));
+      setPreviewImage(editLink.imagePath ? `${BASE_IMAGE_URL}${editLink.imagePath}` : null);
+    }
+  }, [editLink]);
 
   const handleModalClose = () => {
     document.activeElement?.blur();

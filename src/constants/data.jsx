@@ -30,3 +30,26 @@ export const LANGUAGE_IDS = {
 };
 
 export const BASE_IMAGE_URL = import.meta.env.VITE_BASE_IMAGE_URL;
+
+export const createLinkData = (newLink) => ({
+  url: newLink.url,
+  linkName: newLink.linkName,
+  imageFile: newLink.imageFile,
+  translations: newLink.translations,
+});
+
+export const formatEditLink = (editLink) => ({
+  url: editLink.link,
+  linkName: editLink.linkName,
+  imageFile: null,
+  translations: defaultTranslations.map((defaultItem) => {
+    const existingTranslation = editLink.usefulLinksTranslations?.find((t) => t.languageId === defaultItem.LanguageId);
+
+    return existingTranslation
+      ? {
+          LanguageId: existingTranslation.languageId,
+          title: existingTranslation.title,
+        }
+      : { ...defaultItem, title: "" };
+  }),
+});
